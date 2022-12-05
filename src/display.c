@@ -23,22 +23,10 @@ display* create_display() {
   return this;
 }
 
-void destory_display(display* self){
+void destroy_display(display* self){
   SDL_DestroyWindow(self->window);
   free(self);
   SDL_Quit();
 }
 
-int display_tick(display* self){
-    SDL_Event e;
-    self->screen = SDL_GetWindowSurface(self->window);
-    SDL_FillRect(self->screen, NULL, SDL_MapRGB(self->screen->format, 0x00, 0x00, 0x00));
-    SDL_UpdateWindowSurface(self->window);
-    while (SDL_PollEvent(&e)){
-        if (e.type == SDL_QUIT){
-            return 0;
-        }
-    }
-  return 1;
-}
 

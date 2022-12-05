@@ -16,6 +16,4 @@ struct display_struct {
 } typedef display;
 
 display* create_display();
-void destory_display(display* self);
-
-int display_tick(display* self);
+void destroy_display(display* self);
