@@ -7,13 +7,18 @@
 
 int main(int argc, char* args[]) {
   display* vmDisplay = create_display();
-  device* emulator = create_device();
+  device* emulator = create_device(vmDisplay);
   printf("Everying is in order, entering the event loop!\n");
-  while(vm_tick(vmDisplay)){
+  if(load_program(emulator, "test/IBM.ch8") != 0){
+    printf("Failed to load program\n");
+    return 0;
+  }
+  while(vm_tick(emulator)){
 
   }
   printf("Done!\n");
   destroy_display(vmDisplay);
   destroy_device(emulator);
+
   return 0;
 }

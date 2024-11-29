@@ -1,5 +1,6 @@
 #include <SDL3/SDL.h>
 #include "SDL3/SDL_keycode.h"
+#include "SDL3/SDL_render.h"
 #include "SDL3/SDL_surface.h"
 #include "SDL3/SDL_timer.h"
 #include "SDL3/SDL_video.h"
@@ -13,6 +14,7 @@
 struct display_struct {
   SDL_Window *window;
   SDL_Surface *screen;
+  SDL_Renderer *renderer;
 } typedef display;
 
 display* create_display();
